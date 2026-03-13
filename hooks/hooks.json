@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      "scripts/cmux-session-start.sh"
+    ],
+    "Stop": [
+      "scripts/cmux-notify.sh"
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": ["scripts/cmux-notify.sh"]
+      }
+    ]
+  }
+}
