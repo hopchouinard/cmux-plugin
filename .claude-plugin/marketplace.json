@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cmux-plugin",
+  "description": "Claude Code plugin for cmux terminal integration",
+  "owner": {
+    "name": "Patrick Chouinard",
+    "url": "https://github.com/hopchouinard"
+  },
+  "plugins": [
+    {
+      "name": "cmux",
+      "version": "1.0.0",
+      "source": ".",
+      "description": "Integrates Claude Code with cmux — the native macOS terminal built for AI coding agents",
+      "category": "productivity",
+      "tags": ["cmux", "terminal", "workflow", "notifications", "macos"],
+      "author": {
+        "name": "Patrick Chouinard"
+      }
+    }
+  ]
+}
