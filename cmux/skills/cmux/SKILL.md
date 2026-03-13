@@ -50,11 +50,11 @@ Refer to them as `workspace:1`, `pane:2`, `surface:3` in CLI commands.
 separate branch, or start a task that is genuinely isolated from the current context.
 
 ```bash
-# Create a named workspace for the new branch / task
-cmux new-workspace --name "feature/auth"
+# Create a new workspace (optionally with a command to run)
+cmux new-workspace
 
-# Or rename current workspace to match what you're about to do
-cmux rename-workspace "$CMUX_WORKSPACE_ID" "feature/auth"
+# Rename current workspace to match what you're about to do
+cmux rename-workspace --workspace "$CMUX_WORKSPACE_ID" "feature/auth"
 ```
 
 **Restraint:** One workspace per isolated worktree or major parallel thread.
@@ -124,7 +124,7 @@ cmux notify --title "Claude Code" --body "Sub-agent finished: auth feature ready
 cmux notify --title "Claude Code" --subtitle "Checkpoint" --body "Plan approved — ready to execute"
 
 # Flash the pane ring to grab visual attention
-cmux flash-pane
+cmux trigger-flash
 ```
 
 **Restraint:** Do NOT notify after every small step. Reserve notifications for real
@@ -153,37 +153,41 @@ needing to actively watch any terminal.
 ```bash
 # Workspace
 cmux list-workspaces
-cmux new-workspace --name "label"
-cmux rename-workspace <id> "new-name"
-cmux switch-workspace <id>
-cmux close-workspace <id>
+cmux new-workspace [--command "<cmd>"]
+cmux rename-workspace [--workspace <id>] "new-name"
+cmux select-workspace --workspace <id>
+cmux close-workspace --workspace <id>
 
 # Panes and surfaces
-cmux list-panes
-cmux new-pane --direction right|left|up|down
-cmux list-surfaces
-cmux focus-surface <id>
+cmux list-panes [--workspace <id>]
+cmux new-pane [--direction right|left|up|down] [--workspace <id>]
+cmux list-pane-surfaces [--workspace <id>] [--pane <id>]
+cmux focus-pane --pane <id> [--workspace <id>]
 
 # Browser
-cmux browser <surface-id> open-split --direction right|left|up|down
-cmux browser <surface-id> navigate "<url>"
-cmux browser <surface-id> snapshot --compact
-cmux browser <surface-id> get text "<css-selector>"
-cmux browser <surface-id> click "<css-selector>"
-cmux browser <surface-id> fill "<css-selector>" "<value>"
-cmux browser <surface-id> screenshot --out <path>
+cmux browser [--surface <id>] open-split [url]
+cmux browser [--surface <id>] navigate "<url>"
+cmux browser [--surface <id>] snapshot [--compact]
+cmux browser [--surface <id>] get text "<css-selector>"
+cmux browser [--surface <id>] click "<css-selector>"
+cmux browser [--surface <id>] fill "<css-selector>" "<value>"
 
 # Sidebar
-cmux log --level info|progress|success|warning|error --source "<label>" "<message>"
-cmux set-progress <0.0–1.0>
-cmux clear-progress
-cmux list-logs
-cmux clear-logs
+cmux log [--level info|progress|success|warning|error] [--source "<label>"] [--workspace <id>] "<message>"
+cmux set-progress <0.0–1.0> [--label "<text>"] [--workspace <id>]
+cmux clear-progress [--workspace <id>]
+cmux list-log [--limit <n>] [--workspace <id>]
+cmux clear-log [--workspace <id>]
+
+# Sidebar status metadata
+cmux set-status <key> <value> [--icon <name>] [--color <#hex>] [--workspace <id>]
+cmux clear-status <key> [--workspace <id>]
+cmux list-status [--workspace <id>]
+cmux sidebar-state [--workspace <id>]
 
 # Notifications
-cmux notify --title "<title>" --body "<body>"
-cmux notify --title "<title>" --subtitle "<subtitle>" --body "<body>"
-cmux flash-pane
+cmux notify --title "<title>" [--body "<body>"] [--subtitle "<subtitle>"] [--workspace <id>]
+cmux trigger-flash [--workspace <id>] [--surface <id>]
 
 # System
 cmux ping
