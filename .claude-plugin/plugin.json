@@ -6,6 +6,9 @@
   "license": "MIT",
   "repository": "https://github.com/hopchouinard/cmux-plugin",
   "keywords": ["cmux", "terminal", "workflow", "notifications", "worktree", "macos"],
+  "commands": ["./commands/"],
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json",
   "requirements": {
     "platform": ["macos"],
     "tools": ["cmux", "jq"]
