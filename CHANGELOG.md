@@ -7,6 +7,22 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.0.1] — 2026-03-12
+
+### Fixed
+- `plugin.json`: `author` must be an object, not a string; removed unsupported `requirements` key
+- Restructured repo as a proper marketplace with the plugin in a `cmux/` subdirectory
+- `hooks.json`: hook entries must be objects with `type`/`command` fields, not bare strings; use `${CLAUDE_PLUGIN_ROOT}` for portable paths
+- `SKILL.md`: aligned CLI reference with actual cmux commands (`list-logs` → `list-log`, `flash-pane` → `trigger-flash`, `switch-workspace` → `select-workspace`, corrected flag syntax)
+- `commands/status.md`: corrected `list-logs` → `list-log`
+- `cmux-session-start.sh`: fixed `rename-workspace` to use `--workspace` flag (was silently failing)
+
+### Added
+- `marketplace.json` for plugin registry support
+- Sidebar status metadata commands in SKILL.md (`set-status`, `clear-status`, `list-status`, `sidebar-state`)
+
+---
+
 ## [1.0.0] — 2026-03-12
 
 ### Added
