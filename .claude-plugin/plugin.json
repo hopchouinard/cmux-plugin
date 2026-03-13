@@ -2,15 +2,11 @@
   "name": "cmux",
   "version": "1.0.0",
   "description": "Integrates Claude Code with cmux — the native macOS terminal built for AI coding agents. Provides automatic workspace naming, session notifications, sidebar progress reporting, browser split automation, and Superpowers plugin awareness.",
-  "author": "Patrick Chouinard (hopchouinard)",
+  "author": {
+    "name": "Patrick Chouinard",
+    "url": "https://github.com/hopchouinard"
+  },
   "license": "MIT",
   "repository": "https://github.com/hopchouinard/cmux-plugin",
-  "keywords": ["cmux", "terminal", "workflow", "notifications", "worktree", "macos"],
-  "commands": ["./commands/"],
-  "skills": "./skills/",
-  "hooks": "./hooks/hooks.json",
-  "requirements": {
-    "platform": ["macos"],
-    "tools": ["cmux", "jq"]
-  }
+  "keywords": ["cmux", "terminal", "workflow", "notifications", "worktree", "macos"]
 }
