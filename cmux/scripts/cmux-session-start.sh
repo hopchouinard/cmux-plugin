@@ -29,7 +29,7 @@ PROJECT_NAME=$(echo "$PROJECT_NAME" | tr -d '\n' | sed 's|/|-|g')
 GIT_BRANCH=$(git -C "$PWD" rev-parse --abbrev-ref HEAD 2>/dev/null)
 
 # ── Rename the workspace tab ───────────────────────────────────────────────────
-cmux rename-workspace "$CMUX_WORKSPACE_ID" "$PROJECT_NAME" 2>/dev/null
+cmux rename-workspace --workspace "$CMUX_WORKSPACE_ID" "$PROJECT_NAME" 2>/dev/null
 
 # ── Sidebar status entry ───────────────────────────────────────────────────────
 if [ -n "$GIT_BRANCH" ]; then
@@ -38,6 +38,6 @@ else
     STATUS="⚡ ${PROJECT_NAME}"
 fi
 
-cmux log --level info --source "claude" "$STATUS" 2>/dev/null
+cmux log --level info --source "claude" -- "$STATUS" 2>/dev/null
 
 exit 0
