@@ -10,7 +10,7 @@
     {
       "name": "cmux",
       "version": "1.0.0",
-      "source": ".",
+      "source": "./cmux",
       "description": "Integrates Claude Code with cmux — the native macOS terminal built for AI coding agents",
       "category": "productivity",
       "tags": ["cmux", "terminal", "workflow", "notifications", "macos"],
