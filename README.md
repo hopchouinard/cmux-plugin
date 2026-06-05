@@ -25,7 +25,7 @@ Integrates [Claude Code](https://claude.ai/code) with [cmux](https://www.cmux.de
 ```bash
 # In Claude Code
 /plugin marketplace add hopchouinard/patchoutech-plugins
-/plugin install cmux-plugin@patchoutech-plugins
+/plugin install cmux@patchoutech-plugins
 /reload-plugins
 ```
 
@@ -59,20 +59,19 @@ If you have the [Superpowers plugin](https://claude.com/plugins/superpowers) ins
 
 ```
 cmux-plugin/
-├── cmux-plugin/
-│   ├── .claude-plugin/
-│   │   └── plugin.json        # Plugin manifest
-│   ├── skills/
-│   │   └── cmux-plugin/
-│   │       └── SKILL.md       # Core skill — teaches Claude when/how to use cmux
-│   ├── hooks/
-│   │   └── hooks.json         # Hook event declarations
-│   ├── scripts/
-│   │   ├── cmux-session-start.sh  # Renames workspace tab on session start
-│   │   └── cmux-notify.sh         # Sends notifications on Stop / sub-agent finish
-│   └── commands/
-│       ├── status.md          # /cmux:status
-│       └── open-browser.md    # /cmux:open-browser
+├── .claude-plugin/
+│   └── plugin.json        # Plugin manifest
+├── skills/
+│   └── cmux/
+│       └── SKILL.md       # Core skill — teaches Claude when/how to use cmux
+├── hooks/
+│   └── hooks.json         # Hook event declarations
+├── scripts/
+│   ├── cmux-session-start.sh  # Renames workspace tab on session start
+│   └── cmux-notify.sh         # Sends notifications on Stop / sub-agent finish
+├── commands/
+│   ├── status.md          # /cmux:status
+│   └── open-browser.md    # /cmux:open-browser
 ├── CHANGELOG.md
 └── README.md
 ```
