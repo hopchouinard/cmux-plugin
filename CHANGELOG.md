@@ -7,6 +7,15 @@ Versioning follows [Semantic Versioning](https://semver.org/).
 
 ---
 
+## [1.1.0] — 2026-06-05
+
+### Fixed
+- Moved plugin components (`.claude-plugin/`, `commands/`, `hooks/`, `scripts/`, `skills/`) from the `cmux-plugin/` subdirectory to the repository root. Since the marketplace moved to `patchoutech-plugins` and began pointing at this repo's root, Claude Code found no manifest or components at the plugin root — the plugin installed but loaded zero commands, hooks, or skills.
+
+### Changed
+- Renamed plugin `cmux-plugin` → `cmux` so slash commands match the documented namespace (`/cmux:status`, `/cmux:open-browser`) — commands are namespaced by plugin name. Requires the matching marketplace entry update in `patchoutech-plugins`.
+- Renamed skill folder `skills/cmux-plugin/` → `skills/cmux/` for namespace consistency.
+
 ## [1.0.1] — 2026-03-12
 
 ### Fixed
